@@ -10,22 +10,23 @@ class FindDuplicate{
             arr[i] = s.nextInt();
         }
         int visited[] = new int[n];
-        int count;
+        int flag;
         for(int i=0;i<n;i++){
-            count = 0;
+            flag = 0;
             if(visited[i] == 1){
                 continue;
             }
             for(int j = i+1;j<n;j++){
-                if(arr[i] == arr[j]){
-                    count++;
+                if(arr[j] == arr[i]){
+                    flag = 1;
                     visited[j] = 1;
                 }
             }
-            if(count > 1){
+            if(flag == 1){
                 System.out.println(arr[i]);
             }
         }
+        s.close();
 
     }
 }
