@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main{
 	public static void main(String args[]) {
 		try {
-			File myFile = new File("C:\\Users\\Sreshtha\\Desktop\\File Handling Java\\details.txt");
+			File myFile = new File("details.txt");
 			if(myFile.createNewFile()) {
 				System.out.println("File created: "+myFile.getName());
 			}
