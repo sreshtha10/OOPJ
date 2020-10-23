@@ -25,8 +25,10 @@ class Main{
 	public static void main(String args[]) {
 		Train train = new Train("Varanasi", "Jaipur");
 		train.display();
+		// changing source and destination using setter methods.
 		train.setDestination("New Delhi");
 		train.setSource("Chennai");
+		// printing source and destination using getter methods.
 		System.out.println("Source: "+train.getSource()+" Destination: "+train.getDestination());
 	}
 }
