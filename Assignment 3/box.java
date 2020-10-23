@@ -1,7 +1,7 @@
 class Box{
-	double length;
-	double width;
-	double height;
+	private double length;
+	private double width;
+	private double height;
 	Box(){
 		length = 0;
 		height = 0;
