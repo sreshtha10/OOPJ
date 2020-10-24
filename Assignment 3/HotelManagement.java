@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 class Room{
-	public int capacity = 2;
-	public String rent = "$200";
-	public String type = "AC";
-	public String status = "VACANT";
-	public String checkin;
-	public String checkout;
+	int capacity = 2;
+	String rent = "$200";
+	String type = "AC";
+	String status = "VACANT";
+	String checkin;
+	String checkout;
 	public void showStatus() {
 		System.out.println("This room is" +this.status);
 	}
