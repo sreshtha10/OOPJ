@@ -18,6 +18,7 @@ class Hotel{
 		for(int i=0;i<size;i++) {
 			rooms[i] = new Room();
 		}
+		// creating half non-ac rooms and half ac rooms
 		for(int i=(int)size/2;i<size;i++) {
 			rooms[i].rent = "$150";
 			rooms[i].type = "NON-AC";
@@ -30,12 +31,10 @@ class Hotel{
 		if(opt.equals("AC") || opt.equals("ac")) {
 			for(int i = 0;i<(int)rooms.length/2;i++) {
 				if(rooms[i].status == "VACANT") {
-					System.out.println("You can stay in room no"+(i+1));
+					System.out.println("You can stay in room no "+(i+1));
 					rooms[i].status = "OCCUPIED";
 					rooms[i].checkin = date;
-					System.out.println("Enter the checkout date");
-					rooms[i].checkout = sc.nextLine();
-					System.out.println("Your rent for one night stay will be"+rooms[i].rent);
+					System.out.println("Your rent for one night stay will be "+rooms[i].rent);
 					return;
 				}
 			}	
@@ -70,7 +69,7 @@ class Hotel{
 	}
 }
 	
-public class Main{
+class Main{
 	public static void main(String args[]) {
 		Hotel myHotel = new Hotel(50); // creating a hotel with 50 rooms (25 AC 25 NON-AC)
 		boolean run = true;
