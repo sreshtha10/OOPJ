@@ -258,8 +258,120 @@ class Team{
 	
 	
 }
+
+
 class Main{
 	public static void main(String agrs[]){
-		// Main method
+		Scanner sc = new Scanner(System.in);
+		Team teams[] = new Team[3];
+		for(int i=0;i<3;i++) {
+			System.out.println("Enter the format of the"+(i+1)+" team");
+			String format = sc.nextLine();
+			teams[i] = new Team(format);
+			System.out.println("Enter the team name");
+			String teamName = sc.nextLine();
+			teams[i].setTeamName(teamName);
+		}
+		System.out.println("Choose from the following");
+		System.out.println("1. Create Player");
+		System.out.println("2. Add Players");
+		System.out.println("3. Delete Players");
+		System.out.println("4. Display team details");
+		System.out.println("5. Add a match");
+		System.out.println("6. Display matches");
+		System.out.println("7. exit");
+		System.out.println("***************");
+		
+		while(true) {
+			
+			int opt = sc.nextInt();
+			switch(opt) {
+			case 1:{
+				System.out.println("Enter the format");
+				String format = sc.nextLine();
+				if(format == "T20") {
+					T20Player p = new T20Player();
+					System.out.println("Enter player name");
+					String name = sc.nextLine();
+					p.setPlayerName(name);
+					System.out.println("Enter the jersey number");
+					int j = sc.nextInt();
+					p.setJerseyNumber(j);
+					System.out.println("Enter the number of thirties");
+					int t = sc.nextInt();
+					p.setThirties(t);
+					System.out.println("Enter the strike rate");
+					float sr = sc.nextFloat();
+					p.setStrikeRate(sr);
+					System.out.println("Player created");
+				}
+				else {
+					ODIPlayer p = new ODIPlayer();
+					System.out.println("Enter player name");
+					String name = sc.nextLine();
+					p.setPlayerName(name);
+					System.out.println("Enter the jersey number");
+					int j = sc.nextInt();
+					p.setJerseyNumber(j);
+					System.out.println("Enter the number of fifties");
+					int t = sc.nextInt();
+					p.setNumOfFifties(t);
+					System.out.println("Enter the number of centuries");
+					int c = sc.nextInt();
+					p.setNumOfCenturies(c);
+					System.out.println("Player created");
+				}
+				System.out.println("***************");
+				break;
+			}
+			case 2:{
+				System.out.println("Which team");
+				int i = sc.nextInt();
+				teams[i+1].add();
+				System.out.println("***************");
+				break;
+			}
+			case 3:{
+				System.out.println("Which team");
+				int i  = sc.nextInt();
+				teams[i+1].delete();
+				System.out.println("***************");
+				break;
+			}
+			case 4:{
+				System.out.println("Which team");
+				int i = sc.nextInt();
+				teams[i+1].display();
+				System.out.println("***************");
+				break;
+			}
+			case 5:{
+				System.out.println("Which team");
+				int i = sc.nextInt();
+				teams[i+1].addMatch();
+				System.out.println("***************");
+				break;
+			}
+			case 6:{
+				System.out.println("Which team");
+				int i = sc.nextInt();
+				for(int j=0;i<teams[i+1].matches.length && teams[i+1].matches[j].winner != null;j++) {
+					teams[i+1].matches[j].getResult();
+				}
+				System.out.println("***************");
+				break;
+			}
+			case 7:{
+				System.out.println("***************");
+				System.exit(1);
+			}
+			default:{
+				System.out.println("Invalid Option");
+				System.out.println("***************");
+			}
+			}
+		}
+	
+		
 	}
 }
