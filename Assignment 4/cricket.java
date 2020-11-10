@@ -115,7 +115,7 @@ class Match{
 class Team{
 	String teamName;
 	String format;
-	Match[] matches = new Match[3];
+	Match[] matches = new Match[30];
 	T20Player playersT20[];
 	ODIPlayer playersODI[];
 	Team(String format) {
@@ -148,7 +148,7 @@ class Team{
 	}
 	public void add() {
 		Scanner sc = new Scanner(System.in);
-		if(this.format == "T20" && this.playersT20[10].playerName == null) {
+		if(this.format == "T20") {
 			T20Player p = new  T20Player();
 			System.out.println("Enter player name");
 			String name = sc.nextLine();
@@ -166,10 +166,12 @@ class Team{
 			for(int i=0;i<11;i++) {
 				if(this.playersT20[i].playerName == null) {
 					playersT20[i] = p;
+					return;
 				}
 			}
+			System.out.println("Team is full");
 		}
-		else if(this.format == "ODI" && this.playersODI[10].playerName == null) {
+		else {
 			ODIPlayer p = new ODIPlayer();
 			System.out.println("Enter player name");
 			String name = sc.nextLine();
@@ -187,11 +189,69 @@ class Team{
 			for(int i=0;i<11;i++) {
 				if(this.playersODI[i].playerName == null) {
 					playersODI[i] = p;
+					return;
 				}
+			}
+			System.out.println("Team is full");
+		}
+		sc.close();
+	}
+	
+	public void delete() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the player's jersey number");
+		int j = sc.nextInt();
+		if(this.format=="T20") {
+			for(int i=0;i<11;i++) {
+				if(playersT20[i].getJerseyNumber() == j) {
+					playersT20[i] = null;
+					System.out.println("Player deleted");
+					return;
+				}
+			}
+			System.out.println("Player not found");
+		}
+		else {
+			for(int i=0;i<11;i++) {
+				if(playersODI[i].getJerseyNumber() == j) {
+					playersODI[i] = null;
+					System.out.println("Player deleted");
+					return;
+				}
+			}
+			System.out.println("Player not found");
+			
+		}
+		sc.close();
+		return;
+		
+	}
+	public void display() {
+		System.out.println("Team Name - "+this.teamName+" Format- "+this.format);
+		if(this.format == "T20") {
+			for(int i=0;playersT20[i].playerName != null && i < 11;i++) {
+				System.out.println(playersT20[i].getJerseyNumber()+" "+playersT20[i].getPlayerName()+" Thirties: "+playersT20[i].getThirties()+" Strike Rate- "+playersT20[i].getStrikeRate());
 			}
 		}
 		else {
-			System.out.println("Team is full");
+			for(int i=0;playersODI[i].playerName != null && i < 11;i++) {
+				System.out.println(playersODI[i].getJerseyNumber()+" "+playersODI[i].getPlayerName()+" Fifties: "+playersODI[i].getNumOfFifties()+" Centuries- "+playersODI[i].getNumOfCenturies());
+			}
+		}
+		return;
+	}
+	
+	public void addMatch() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the opposition");
+		String t2 = sc.nextLine();
+		System.out.println("Enter the winner");
+		String winner = sc.nextLine();
+		Match m = new Match(this.teamName,t2,winner);
+		for(int i=0;i<matches.length;i++) {
+			if(matches[i].team1 == null) {
+				matches[i] = m;
+			}
 		}
 		sc.close();
 	}
