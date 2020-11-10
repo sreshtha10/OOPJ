@@ -28,6 +28,56 @@ class Player{
 		return;
 	}
 }
+
+class T20Player extends Player{
+	int thirties;
+	float strikeRate;
+	public T20Player(String playerName,int jerseyNumber,String teamName) {
+		super(playerName,jerseyNumber,teamName);
+	}
+	public void setThirties(int thirties) {
+		this.thirties = thirties;
+		return;
+	}
+	public int getThirties() {
+		return this.thirties;
+	}
+	public void setStrikeRate(float strikeRate) {
+		this.strikeRate = strikeRate;
+		return;
+	}
+	public float getStrikeRate() {
+		return this.strikeRate;
+	}
+	
+}
+
+
+class ODIPlayer extends Player{
+	int fifties;
+	int centuries;
+	ODIPlayer(String playerName,int jerseyNumber,String teamName){
+		super(playerName,jerseyNumber,teamName);
+	}
+	 public int getNumOfFifties() {
+		 return this.fifties;
+	 }
+	public void setNumOfFifties(int fifties) {
+		this.fifties = fifties;
+	}
+	public int getNumOfCenturies() {
+		return this.centuries;
+	}
+	public void setNumOfCenturies(int centuries) {
+		this.centuries = centuries;
+	}
+	
+	
+}
+
+
+
+
 class Match{
 	String team1;
 	String team2;
@@ -44,6 +94,8 @@ class Match{
 		return;
 	}
 }
+
+
 abstract class team{
 	
 	
