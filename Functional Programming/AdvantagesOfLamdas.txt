@@ -1,0 +1,5 @@
+Advantages of Lambdas:
+Enables functional programming
+Readable and concise code
+Easier-to-use APIs and libraries
+Enables support for parallel processing
