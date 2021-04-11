@@ -1,0 +1,21 @@
+Functional Programming :
+  This programming paradigm emphasizes on the use of functions where each function performs a specific task.
+  Fundamental elements used are variables and functions.The data in the functions are immutable(cannot be changed after creation).
+  Importance is not given to data but to functions.
+  It follows declarative programming model.
+  It uses recursion for iteration.
+  It is parallel programming supported.
+  Does not have any access specifier.
+  No data hiding is possible. Hence, Security is not possible.
+  
+  
+Object Oriented Programming:
+  This programming paradigm is based on object oriented concept. Classes are used where instance of objects are created
+  Fundamental elements used are objects and methods and the data used here are mutable data.
+  Importance is given to data rather than procedures.
+  It follows imperative programming model.
+  It uses loops for iteration.
+  It does not support parallel programming.
+  The statements in this programming paradigm need to follow a order i.e., bottom up approach while execution.
+  Has three access specifiers namely, Public, Private and Protected.
+  Provides data hiding. Hense, secured programs are possible.
